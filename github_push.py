@@ -14,15 +14,34 @@ def get_current_branch():
     output, _ = process.communicate()
     return output.decode('utf-8').strip()
 
+def remote_exists():
+    process = subprocess.Popen(["git", "remote"], stdout=subprocess.PIPE)
+    output, _ = process.communicate()
+    return "origin" in output.decode('utf-8')
+
+def is_git_repo():
+    return os.path.isdir('.git')
+
 def push_to_github(repo_name, commit_message):
-    current_branch = get_current_branch()
-    commands = [
-        "git init",
+    remote_url = f"https://github.com/lucesgabriel/{repo_name}.git"
+    
+    commands = []
+    
+    if not is_git_repo():
+        commands.append("git init")
+    
+    commands.extend([
         "git add .",
-        f'git commit -m "{commit_message}"',
-        f"git remote add origin https://github.com/lucesgabriel/{repo_name}.git",
-        f"git push -u origin {current_branch}:{current_branch}"
-    ]
+        f'git commit -m "{commit_message}"'
+    ])
+
+    if remote_exists():
+        commands.append(f"git remote set-url origin {remote_url}")
+    else:
+        commands.append(f"git remote add origin {remote_url}")
+
+    current_branch = get_current_branch()
+    commands.append(f"git push -u origin {current_branch}:{current_branch}")
 
     for command in commands:
         if not run_command(command):
