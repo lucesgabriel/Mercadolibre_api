@@ -1,8 +1,20 @@
 import os
 import subprocess
+import sys
+import ctypes
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
 
 def run_command(command):
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    if is_admin():
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    else:
+        process = subprocess.Popen(['runas', '/user:Administrator', command], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    
     output, error = process.communicate()
     if process.returncode != 0:
         print(f"Error: {error.decode('utf-8')}")
@@ -52,6 +64,9 @@ def push_to_github(repo_name, commit_message):
     return True
 
 if __name__ == "__main__":
-    repo_name = "Mercadolibre_api"
-    commit_message = "Commit inicial: MercadoLibre Product Tracker"
-    push_to_github(repo_name, commit_message)
+    if not is_admin():
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+    else:
+        repo_name = "Mercadolibre_api"
+        commit_message = "Commit inicial: MercadoLibre Product Tracker"
+        push_to_github(repo_name, commit_message)
