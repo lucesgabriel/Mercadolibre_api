@@ -75,6 +75,6 @@ Las contribuciones son bienvenidas. Por favor, sigue estos pasos para contribuir
 Distribuido bajo la Licencia MIT. Ver `LICENSE` para más información.
 
 ## Contacto
-Tu Nombre - [tu@email.com](mailto:tu@email.com)
+Gabriel Luces - [lucesgabriel@gmail.com](mailto:tu@email.com)
 
 Enlace del Proyecto: [https://github.com/tu_usuario/mercadolibre-product-tracker](https://github.com/tu_usuario/mercadolibre-product-tracker)
