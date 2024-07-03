@@ -20,7 +20,7 @@ MercadoLibre Chile Product Tracker es una aplicación web desarrollada con Pytho
 
 1. Clona este repositorio:
    ```
-   git clone https://github.com/tu_usuario/mercadolibre-product-tracker.git
+   git clone https://github.com/lucesgabriel/Mercadolibre_api.git
    cd mercadolibre-product-tracker
    ```
 
