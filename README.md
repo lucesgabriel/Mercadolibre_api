@@ -77,4 +77,4 @@ Distribuido bajo la Licencia MIT. Ver `LICENSE` para más información.
 ## Contacto
 Gabriel Luces - [lucesgabriel@gmail.com](mailto:tu@email.com)
 
-Enlace del Proyecto: [https://github.com/tu_usuario/mercadolibre-product-tracker](https://github.com/tu_usuario/mercadolibre-product-tracker)
+Enlace del Proyecto: [https://github.com/lucesgabriel/Mercadolibre_api.git]
