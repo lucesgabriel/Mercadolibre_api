@@ -1,8 +1,20 @@
 import os
 import subprocess
+import sys
+import ctypes
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
 
 def run_command(command):
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    if is_admin():
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    else:
+        process = subprocess.Popen(['runas', '/user:Administrator', command], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    
     output, error = process.communicate()
     if process.returncode != 0:
         print(f"Error: {error.decode('utf-8')}")
@@ -19,21 +31,28 @@ def remote_exists():
     output, _ = process.communicate()
     return "origin" in output.decode('utf-8')
 
+def is_git_repo():
+    return os.path.isdir('.git')
+
 def push_to_github(repo_name, commit_message):
-    current_branch = get_current_branch()
     remote_url = f"https://github.com/lucesgabriel/{repo_name}.git"
     
-    commands = [
-        "git init",
+    commands = []
+    
+    if not is_git_repo():
+        commands.append("git init")
+    
+    commands.extend([
         "git add .",
         f'git commit -m "{commit_message}"'
-    ]
+    ])
 
     if remote_exists():
         commands.append(f"git remote set-url origin {remote_url}")
     else:
         commands.append(f"git remote add origin {remote_url}")
 
+    current_branch = get_current_branch()
     commands.append(f"git push -u origin {current_branch}:{current_branch}")
 
     for command in commands:
@@ -45,6 +64,9 @@ def push_to_github(repo_name, commit_message):
     return True
 
 if __name__ == "__main__":
-    repo_name = "Mercadolibre_api"
-    commit_message = "Commit inicial: MercadoLibre Product Tracker"
-    push_to_github(repo_name, commit_message)
+    if not is_admin():
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+    else:
+        repo_name = "Mercadolibre_api"
+        commit_message = "Commit inicial: MercadoLibre Product Tracker"
+        push_to_github(repo_name, commit_message)
