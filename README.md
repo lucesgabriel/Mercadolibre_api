@@ -1,7 +1,7 @@
-# MercadoLibre Chile Product Tracker
+# MercadoLibre Chile Product Tracker con Groq AI
 
 ## Descripción
-MercadoLibre Chile Product Tracker es una aplicación web desarrollada con Python y Streamlit que permite a los usuarios rastrear y analizar los productos más vendidos en diferentes categorías de MercadoLibre Chile. La aplicación utiliza la API oficial de MercadoLibre para obtener datos en tiempo real sobre productos, visitas, calificaciones y reputación de vendedores.
+MercadoLibre Chile Product Tracker es una aplicación web avanzada desarrollada con Python y Streamlit que permite a los usuarios rastrear, analizar y generar resúmenes inteligentes de los productos más vendidos en diferentes categorías de MercadoLibre Chile. La aplicación utiliza la API oficial de MercadoLibre para obtener datos en tiempo real sobre productos, visitas, calificaciones y reputación de vendedores, y emplea modelos de lenguaje de Groq AI para generar análisis detallados.
 
 ## Características
 - Selección de categorías de productos
@@ -9,12 +9,16 @@ MercadoLibre Chile Product Tracker es una aplicación web desarrollada con Pytho
 - Información detallada de cada producto, incluyendo precio, visitas y calificaciones
 - Datos sobre la reputación del vendedor
 - Interfaz de usuario interactiva con Streamlit
-- Opción para descargar los datos en formato CSV
+- Generación de resúmenes inteligentes utilizando modelos de lenguaje de Groq AI
+- Visualizaciones de datos interactivas con Plotly
+- Opción para descargar los datos en formato CSV y los resúmenes generados
+- Configuración flexible de credenciales de API
 
 ## Requisitos
 - Python 3.7+
 - pip (gestor de paquetes de Python)
 - Cuenta de desarrollador en MercadoLibre (para obtener las credenciales de API)
+- Cuenta de Groq AI (para obtener la clave de API)
 
 ## Instalación
 
@@ -35,12 +39,12 @@ MercadoLibre Chile Product Tracker es una aplicación web desarrollada con Pytho
    pip install -r requirements.txt
    ```
 
-4. Configura tus credenciales de API de MercadoLibre:
-   Crea un archivo `.streamlit/secrets.toml` en el directorio del proyecto y añade tus credenciales:
-   ```toml
-   CLIENT_ID = "tu_client_id"
-   CLIENT_SECRET = "tu_client_secret"
-   ```
+4. Configura tus credenciales de API:
+Crea un archivo `.streamlit/secrets.toml` en el directorio del proyecto y añade tus credenciales:
+```toml
+CLIENT_ID = "tu_client_id_de_mercadolibre"
+CLIENT_SECRET = "tu_client_secret_de_mercadolibre"
+GROQ_API_KEY = "tu_clave_api_de_groq"
 
 ## Uso
 
