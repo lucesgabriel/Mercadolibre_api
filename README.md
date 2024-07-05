@@ -25,7 +25,7 @@ MercadoLibre Chile Product Tracker es una aplicación web avanzada desarrollada 
 1. Clona este repositorio:
    ```
    git clone https://github.com/lucesgabriel/Mercadolibre_api.git
-   cd mercadolibre-product-tracker
+   cd Mercadolibre_api
    ```
 
 2. Crea un entorno virtual (opcional, pero recomendado):
@@ -40,11 +40,12 @@ MercadoLibre Chile Product Tracker es una aplicación web avanzada desarrollada 
    ```
 
 4. Configura tus credenciales de API:
-Crea un archivo `.streamlit/secrets.toml` en el directorio del proyecto y añade tus credenciales:
-```toml
-CLIENT_ID = "tu_client_id_de_mercadolibre"
-CLIENT_SECRET = "tu_client_secret_de_mercadolibre"
-GROQ_API_KEY = "tu_clave_api_de_groq"
+   Crea un archivo `.streamlit/secrets.toml` en el directorio del proyecto y añade tus credenciales:
+   ```toml
+   CLIENT_ID = "tu_client_id_de_mercadolibre"
+   CLIENT_SECRET = "tu_client_secret_de_mercadolibre"
+   GROQ_API_KEY = "tu_clave_api_de_groq"
+   ```
 
 ## Uso
 
@@ -55,11 +56,17 @@ GROQ_API_KEY = "tu_clave_api_de_groq"
 
 2. Abre tu navegador y ve a `http://localhost:8501`.
 
-3. Usa la barra lateral para seleccionar una categoría y el número de productos a mostrar.
+3. Usa la barra lateral para seleccionar una categoría, el número de productos a mostrar, y el modelo de Groq AI a utilizar.
 
-4. Haz clic en "Fetch Products" para obtener y visualizar los datos.
+4. Opcionalmente, ingresa manualmente las credenciales de API si lo deseas.
 
-5. Explora los resultados en la tabla interactiva y descarga los datos si lo deseas.
+5. Haz clic en "Fetch Products" para obtener y visualizar los datos.
+
+6. Explora los resultados en la tabla interactiva y las visualizaciones generadas.
+
+7. Genera un resumen inteligente de los datos utilizando el modelo de Groq AI seleccionado.
+
+8. Descarga los datos o el resumen generado si lo deseas.
 
 ## Estructura del Proyecto
 - `app.py`: Script principal de la aplicación Streamlit
@@ -79,6 +86,6 @@ Las contribuciones son bienvenidas. Por favor, sigue estos pasos para contribuir
 Distribuido bajo la Licencia MIT. Ver `LICENSE` para más información.
 
 ## Contacto
-Gabriel Luces - [lucesgabriel@gmail.com](mailto:tu@email.com)
+Gabriel Luces - lucesgabriel@gmail.com
 
-Enlace del Proyecto: [https://github.com/lucesgabriel/Mercadolibre_api.git]
+Enlace del Proyecto: [https://github.com/lucesgabriel/Mercadolibre_api](https://github.com/lucesgabriel/Mercadolibre_api)
