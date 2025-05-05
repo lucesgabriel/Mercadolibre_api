@@ -1,4 +1,4 @@
-# MercadoLibre Chile Product Tracker con Groq AI
+# MercadoLibre Chile Product Tracker con Groq AI.
 
 ## Descripción
 MercadoLibre Chile Product Tracker es una aplicación web avanzada desarrollada con Python y Streamlit que permite a los usuarios rastrear, analizar y generar resúmenes inteligentes de los productos más vendidos en diferentes categorías de MercadoLibre Chile. La aplicación utiliza la API oficial de MercadoLibre para obtener datos en tiempo real sobre productos, visitas, calificaciones y reputación de vendedores, y emplea modelos de lenguaje de Groq AI para generar análisis detallados.
